@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praise Songs - Music Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="0227.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <main class="container">
+        <header class="page-header glass">
+            <a href="index.html" class="back-link">← Back</a>
+            <h1 class="glow-text-small">Praise Songs</h1>
+        </header>
+        
+        <div class="song-collection" id="praise-collection">
+            <!-- Add New Song Card -->
+            <div class="song-card add-card glass" id="add-song-card">
+                <div class="card-content">
+                    <div class="plus-icon">+</div>
+                    <p>Add New Song</p>
+                </div>
+            </div>
+            
+            <!-- Blank Card -->
+            <div class="song-card blank-card glass">
+                <div class="card-content">
+                    <div class="music-icon">♪</div>
+                    <p>Empty</p>
+                </div>
+            </div>
+            
+            <!-- Song Cards will be added here by JavaScript -->
+        </div>
+    </main>
+    
+    <!-- Add Song Modal -->
+    <div class="modal" id="add-song-modal">
+        <div class="modal-content glass">
+            <h3>Add New Song</h3>
+            <input type="text" id="new-song-title" placeholder="Song title">
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancel-add-song">Cancel</button>
+                <button class="add-btn" id="confirm-add-song">Add Song</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Initialize the page with praise songs
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage('praise', [
+                { id: 1, title: "Joyful Noise" },
+                { id: 2, title: "Victory Chant" },
+                { id: 3, title: "Celebration" },
+                { id: 4, title: "Glorious Day" },
+                { id: 5, title: "Rejoice" }
+            ]);
+        });
+    </script>
+</body>
+</html>
+

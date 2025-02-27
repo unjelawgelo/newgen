@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRev</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="0227.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    
+
+    <!-- Site Title -->
+    <h1 class="glow-text site-title">JRev</h1>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-container">
+        <div class="music-bars" id="musicBars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="dif.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="collections">
+            <div class="collection-grid">
+                <a href="praise.html" class="collection-card primary glass">
+                    <h2>Praise</h2>
+                    <p>Uplifting Songs</p>
+                </a>
+                
+                <a href="worship.html" class="collection-card primary glass">
+                    <h2>Worship</h2>
+                    <p>Reverent Songs</p>
+                </a>
+            </div>
+            
+            <a href="all-songs.html" class="collection-card secondary glass full-width">
+                <h2>All Songs</h2>
+                <p>Complete Collection</p>
+            </a>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
+

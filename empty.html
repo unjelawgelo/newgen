@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Page - Music Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="0227.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-container">
+        <div class="music-bars" id="musicBars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="dif.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <main class="container">
+        <header class="page-header">
+            <a href="javascript:history.back()" class="back-link">← Back</a>
+            <h1 class="glow-text-small text-center">Empty Page</h1>
+        </header>
+        
+        <div class="empty-content glass">
+            <div class="empty-icon">♪</div>
+            <h2>This Space is Empty </h2>
+            <p>No content has been added here yet.</p>
+        </div>
+
+        <!-- New Chrome-like Page Card -->
+        <div class="empty-content glass">
+            <div class="empty-icon">
+                <img src="sha.png" alt="Chrome Icon" width="70" height="70">
+            </div>
+            <h2>Chrome-liked Page</h2>
+            <p>Effortlessly switch tabs like a browser- view songs, chords, or Nashville notation, and you can upload images, & rearrange content seamlessly.</p> 
+            <a href="chrome.html" class="btn">Try it now</a>
+        </div>
+        
+
+        <style>
+            .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f44242; /* Google Blue */
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px; /* Adds space above the button */
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e83535;
+}
+
+.btn2 {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4292f4; /* Google Blue */
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px; /* Adds space above the button */
+    transition: background-color 0.3s ease;
+}
+
+.btn2:hover {
+    background-color: #355ce8;
+}
+
+        </style>
+        
+
+        <div class="empty-content glass">
+            <div class="empty-icon">
+                <img src="n2c.jpg" alt="Chrome Icon" width="250" height="140">
+            </div>
+            <h1>AI Powered: n2c</h1>
+            <h5>Nashville to Chords/Chords Detection and Conversion</h5>
+            <p> </p>
+            <p>Emergency tool for acousticerist!</p> 
+            <a href="https://unjelawgelo.github.io/n2c/" class="btn2">Enter</a>
+        </div>
+        
+
+
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>

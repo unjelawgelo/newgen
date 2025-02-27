@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewGen wTs | WorshipTeamSystem</title>
+    <link rel="stylesheet" href="chrome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+    <div class="browser chrome-layout">
+        <div class="toolbar2">
+            <button id="increase-font">A+</button>
+        </div>
+        <div class="toolbar3">
+            <button id="decrease-font">A -</button>
+        </div>
+        <div class="toolbar">
+            <button class="layout-toggle">
+                <i class="fas fa-columns"></i>
+            </button>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="1" draggable="true">
+                <span class="drag-handle">&#9776;</span>
+                <input type="text" class="tab-title" value="Dance in Freedom">
+                <button class="close-tab">&times;</button>
+            </div>
+            <div class="tab" data-tab="2" draggable="true">
+                <span class="drag-handle">&#9776;</span>
+                <input type="text" class="tab-title" value="Plead The Blood">
+                <button class="close-tab">&times;</button>
+            </div>
+            <button class="new-tab">+</button>
+        </div>
+
+        <!-- Existing content structure -->
+        <div class="content active" data-content="1">
+            <h2 class="page-title">Dance in Freedom</h2>
+            <textarea class="page-content" placeholder="Paste your text here">
+14 641
+
+Pre:
+564 545
+
+Chorus:
+14 654
+
+Bridge:
+14 654
+            </textarea>
+            <input type="file" class="image-upload" accept="image/*">
+            <div class="image-preview"></div>
+        </div>
+
+        <div class="content" data-content="2">
+            <h2 class="page-title">Plead The Blood</h2>
+            <textarea class="page-content" placeholder="Paste your text here">
+Verse:
+1465
+
+Chorus:
+14 154
+
+Bridge:
+65 16
+14 154
+
+Vamp1:
+65 1 4
+            </textarea>
+            <input type="file" class="image-upload" accept="image/*">
+            <div class="image-preview"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+    <script src="chrome.js"></script>
+</body>
+</html>
