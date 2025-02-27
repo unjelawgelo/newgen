@@ -18,6 +18,23 @@
         <div class="overlay"></div>
     </div>
 
+        <!-- Audio Visualizer -->
+        <div class="audio-container">
+            <div class="music-bars" id="musicBars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    
+        <!-- Audio Element -->
+        <audio id="bgMusic" loop>
+            <source src="dif.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
     <main class="container">
         <header class="page-header glass">
             <a href="index.html" class="back-link">← Back</a>
@@ -58,6 +75,8 @@
     </div>
     
     <script src="script.js"></script>
+    <script src="index.js"></script>
+
     <script>
         // Initialize the page with all songs
         document.addEventListener('DOMContentLoaded', function() {
