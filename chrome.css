@@ -1,181 +1,198 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #1f1f1f;
-    color: #e0e0e0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .browser {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #121212;
-    position: relative; /* Add this to make it a positioning context for the fixed button */
-  }
-  
-  .toolbar {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 1000;
-    background-color: rgba(51, 51, 51, 0.6);
-    padding: 10px;
-    border-radius: 4px;
-  }
-  .toolbar2 {
-    position: fixed;
-    bottom: 10px;
-    right: 60px;
-    z-index: 1000;
-    background-color: rgba(51, 51, 51, 0.6);
-    padding: 10px;
-    border-radius: 4px;
-  }
-  .toolbar3 {
-    position: fixed;
-    bottom: 10px;
-    right: 125px;
-    z-index: 1000;
-    background-color: rgba(51, 51, 51, 0.6);
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  .layout-toggle {
-    background-color: transparent;
-    border: none;
-    color: #e0e0e0;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 4px;
-    transition: color 0.3s;
-  }
-  
-  .layout-toggle:hover {
-    color: #ffffff;
-  }
-  
-  .tabs {
-    display: flex;
-    background-color: #000000;
-    padding: 8px 8px 0;
-    overflow-x: auto;
-    flex-shrink: 0;
-  }
-  
-  .tab {
-    display: flex;
-    align-items: center;
-    background-color: #2b2b2b;
-    border-radius: 8px 8px 0 0;
-    padding: 4px 8px;
-    margin-right: 4px;
-    cursor: move;
-    transition: background-color 0.3s;
-  }
-  
-  .tab.active {
-    background-color: #121212;
-  }
-  
-  .drag-handle {
-    cursor: move;
-    margin-right: 10px;
-    color: #fff;
-  }
-  
-  .tab-title {
-    border: none;
-    background: transparent;
-    color: #e0e0e0;
-    font-size: 15px;
-    width: 80px;
-    outline: none;
-  }
-  
-  .close-tab {
-    background: transparent;
-    border: none;
-    color: #e0e0e0;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 4px;
-  }
-  
-  .new-tab {
-    background-color: transparent;
-    border: none;
-    color: #e0e0e0;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 0 8px;
-  }
-  
-  .content {
-    display: none;
-    flex-grow: 1;
-    padding: 16px;
-    overflow-y: auto;
-  }
-  
-  .content.active {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .page-title {
-    font-size: 18px;
-    margin-bottom: 16px;
-  }
-  
-  .page-content {
-    width: 100%;
-    margin-bottom: 16px;
-    padding: 8px;
-    border: 1px solid #1f1f1f;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #1f1f1f;
-    color: #e0e0e0;
-    flex-grow: 1;
-    resize: none;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  .add-image {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 18px;
-    border-radius: 5px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-  .image-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+
+.browser {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #121212;
+  position: relative;
 }
-  
-  .image-upload {
-    margin-bottom: 16px;
-    color: #e0e0e0;
-  }
-  
-  .image-preview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+
+/* Toolbar buttons */
+.toolbar, .toolbar2, .toolbar3 {
+  position: fixed;
+  bottom: 10px;
+  z-index: 1000;
+  background-color: rgba(51, 51, 51, 0.6);
+  padding: 10px;
+  border-radius: 4px;
 }
+
+.toolbar { right: 10px; }
+.toolbar2 { right: 60px; }
+.toolbar3 { right: 125px; }
+
+.layout-toggle {
+  background-color: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s;
+}
+
+.layout-toggle:hover {
+  color: #ffffff;
+}
+
+/* Scrollable Tabs */
+.tabs {
+  display: flex;
+  background-color: #000000;
+  padding: 2px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents tabs from wrapping */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #121212 #00000019;
+}
+
+/* Chrome-like smooth scrolling */
+.tabs {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar customization */
+.tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 10px;
+}
+
+.tabs::-webkit-scrollbar-track {
+  background: #333;
+}
+
+/* Tab Styling */
+.tab {
+  display: flex;
+  align-items: center;
+  background-color: #2b2b2b;
+  border-radius: 8px 8px 0 0;
+  padding: 4px 8px;
+  margin-right: 4px;
+  cursor: grab;
+  flex-shrink: 0; /* Prevents tabs from shrinking */
+}
+
+.tab.active {
+  background-color: #121212;
+}
+
+/* Drag handle */
+.drag-handle {
+  cursor: grab;
+  margin-right: 10px;
+  color: #fff;
+}
+
+/* Tab title */
+.tab-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer; /* Make it clear it's interactive */
+}
+
+.tab-title:hover {
+  overflow: visible;
+  white-space: normal;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 10;
+}
+
+/* Close button */
+.close-tab {
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+/* New Tab Button */
+.new-tab {
+  background-color: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+/* Content Section */
+.content {
+  display: none;
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.content.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Title */
+.page-title {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+/* Text Area */
+.page-content {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 1px solid #1f1f1f;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  flex-grow: 1;
+  resize: none;
+}
+
+/* Image Upload */
+.image-upload {
+  margin-bottom: 16px;
+  color: #e0e0e0;
+}
+
+/* Image Preview */
+.image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .image-wrapper {
   position: relative;
   display: inline-block;
@@ -202,91 +219,93 @@
   width: 20px;
   height: 20px;
 }
-  
-  /* Chrome-like layout */
-  .chrome-layout {
-    flex-direction: column;
-  }
-  
-  .chrome-layout .tabs {
-    flex-direction: row;
-  }
-  
-  /* Vertical layout */
-  .vertical-layout {
-    flex-direction: row;
-  }
-  
-  .vertical-layout .tabs {
-    flex-direction: column;
-    width: 150px;
-    height: 100%;
-    overflow-y: auto;
-    padding: 8px 0;
-    scroll-behavior: smooth;
-  }
-  
-  .vertical-layout .tab {
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 4px;
-    margin-right: 0;
-    padding: 4px;
-    min-height: 30px;
-  }
-  
-  .vertical-layout .content {
-    flex-grow: 1;
-    border-left: 1px solid #4a4a4a;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-  }
-  
-  .vertical-layout .new-tab {
-    width: 100%;
-    text-align: left;
-    padding: 4px 8px;
-  }
-  
-  @media (min-width: 768px) {
-    .browser {
+
+/* Chrome-like layout */
+.chrome-layout {
+  flex-direction: column;
+}
+
+.chrome-layout .tabs {
+  flex-direction: row;
+}
+
+/* Vertical layout */
+.vertical-layout {
+  flex-direction: row;
+}
+
+.vertical-layout .tabs {
+  flex-direction: column;
+  width: 150px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 8px 0;
+  scroll-behavior: smooth;
+}
+
+.vertical-layout .tab {
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 4px;
+  margin-right: 0;
+  padding: 4px;
+  min-height: 30px;
+}
+
+.vertical-layout .content {
+  flex-grow: 1;
+  border-left: 1px solid #4a4a4a;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.vertical-layout .new-tab {
+  width: 100%;
+  text-align: left;
+  padding: 4px 8px;
+}
+
+/* Font Resizing */
+#increase-font, #decrease-font {
+  background-color: rgba(51, 51, 51, 0.6);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#increase-font:hover, #decrease-font:hover {
+  background-color: rgba(70, 70, 70, 0.8);
+}
+
+/* Responsive Fixes */
+@media (min-width: 768px) {
+  .browser {
       max-width: 1000px;
       margin: 0 auto;
       height: 90vh;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-  
-    body {
+  }
+
+  body {
       padding: 20px;
       justify-content: center;
       align-items: center;
-    }
-    .toolbar {
-      bottom: 30px;
-      right: calc(50% - 490px);
-    }
-    .toolbar2 {
-        bottom: 30px;
-        right: calc(50% - 440px);
-    }
-    .toolbar3 {
-        bottom: 30px;
-        right: calc(50% - 377px);
-    }
   }
-  
-  #increase-font,
-#decrease-font {
-    background-color: rgba(51, 51, 51, 0.6); /* Same as toolbar2 and toolbar3 */
-    color: white; /* White text */
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
+
+  .toolbar { bottom: 30px; right: calc(50% - 490px); }
+  .toolbar2 { bottom: 30px; right: calc(50% - 440px); }
+  .toolbar3 { bottom: 30px; right: calc(50% - 377px); }
 }
 
-#increase-font:hover,
-#decrease-font:hover {
-    background-color: rgba(70, 70, 70, 0.8); /* Slightly lighter on hover */
+.editable-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: #e0e0e0;
+  outline: none;
+  width: 100%;
 }
