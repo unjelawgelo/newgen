@@ -74,25 +74,62 @@ style.innerHTML = `
 document.head.appendChild(style);
 
 // Function to create a tab
+// function createTab(title = "New Tab", contentText = "", link = "") {
+//     tabCounter++;
+//     const tab = document.createElement("div");
+//     tab.className = "tab";
+//     tab.dataset.tab = tabCounter;
+//     tab.draggable = true;
+//     tab.innerHTML = `
+//         <span class="drag-handle">&#9776;</span>
+//         <input type="text" class="tab-title" value="${title}">
+//         <button class="close-tab">&times;</button>
+//     `;
+//     tabsContainer.insertBefore(tab, newTabButton);
+
+//     const content = document.createElement("div");
+//     content.className = "content";
+//     content.dataset.content = tabCounter;
+//     content.innerHTML = `
+//         <div class="content-header">
+//             <h2 class="page-title">${title}</h2>
+//             ${link ? `<a href="${link}" target="_blank" class="tab-link">|ılıılı|ıllılı</a>` : ""}
+//         </div>
+//         <textarea class="page-content">${contentText}</textarea>
+//         <input type="file" class="image-upload" accept="image/*">
+//         <div class="image-preview"></div>
+//     `;
+//     contentContainer.appendChild(content);
+
+//     const newTextArea = content.querySelector(".page-content");
+//     newTextArea.style.fontSize = `${currentFontSize}px`;
+
+//     setupTabListeners(tab);
+//     setupContentListeners(content);
+//     switchTab(tab);
+// }
 function createTab(title = "New Tab", contentText = "", link = "") {
     tabCounter++;
+
+    // Create the tab
     const tab = document.createElement("div");
     tab.className = "tab";
     tab.dataset.tab = tabCounter;
     tab.draggable = true;
     tab.innerHTML = `
         <span class="drag-handle">&#9776;</span>
-        <input type="text" class="tab-title" value="${title}">
+        <span class="tab-title">${title}</span>
         <button class="close-tab">&times;</button>
     `;
     tabsContainer.insertBefore(tab, newTabButton);
 
+    // Create the content area
     const content = document.createElement("div");
     content.className = "content";
     content.dataset.content = tabCounter;
     content.innerHTML = `
         <div class="content-header">
-            <h2 class="page-title">${title}</h2>
+            <input type="text" class="editable-title" value="${title}">
             ${link ? `<a href="${link}" target="_blank" class="tab-link">|ılıılı|ıllılı</a>` : ""}
         </div>
         <textarea class="page-content">${contentText}</textarea>
@@ -101,8 +138,10 @@ function createTab(title = "New Tab", contentText = "", link = "") {
     `;
     contentContainer.appendChild(content);
 
-    const newTextArea = content.querySelector(".page-content");
-    newTextArea.style.fontSize = `${currentFontSize}px`;
+    const titleInput = content.querySelector(".editable-title");
+    titleInput.addEventListener("input", () => {
+        tab.querySelector(".tab-title").textContent = titleInput.value || "Untitled";
+    });
 
     setupTabListeners(tab);
     setupContentListeners(content);
@@ -111,22 +150,34 @@ function createTab(title = "New Tab", contentText = "", link = "") {
 
 
 
-    function setupInitialTabs() {
-        createTab(
-            "Dance in Freedom", 
-            `v\n14\n641\n\npre-ch\n564\n545\n\nch\n14\n654\n\nbrdge\n14\n654`,
-            "https://www.chords-and-tabs.net/song/name/victory-worship-dance-in-freedom-2"
-        );
-        createTab(
-            "Plead The Blood", 
-            `v\n1465\n\nch\n14\n154\n\nbrdge\n65\n16\n\n14\n154\n\nVamp1\n65 1 4`,
-            "https://www.worshiptogether.com/songs/plead-the-blood-chris-davenport-cody-carnes/"
-        );
-    
-        // Activate the first tab explicitly
-        const firstTab = document.querySelector(".tab");
-        if (firstTab) switchTab(firstTab);
-    }
+function setupInitialTabs() {
+    createTab(
+        "God's Great Dance Floor",
+        `intro\n1415\n\nv\n1415\n\npre\n2614\n\nch\n1415`,
+        "https://www.worshiptogether.com/songs/gods-great-dance-floor-tomlin/"
+    );
+    createTab(
+        "Gratitude",
+        `intro\n\nv\n1 654\n\nch\n15\n4 65\n\nbrdge\n1\n5 4 1 5`,
+        "https://www.worshiptogether.com/songs/gratitude-brandon-lake/"
+    );
+    createTab(
+        "Dance in Freedom", 
+        `v\n14\n641\n\npre-ch\n564\n545\n\nch\n14\n654\n\nbrdge\n14\n654`,
+        "https://www.chords-and-tabs.net/song/name/victory-worship-dance-in-freedom-2"
+    );
+    createTab(
+        "Plead The Blood", 
+        `v\n1465\n\nch\n14\n154\n\nbrdge\n65\n16\n\n14\n154\n\nVamp1\n65 1 4`,
+        "https://www.worshiptogether.com/songs/plead-the-blood-chris-davenport-cody-carnes/"
+    );
+
+
+    // Activate the first tab explicitly
+    const firstTab = document.querySelector(".tab");
+    if (firstTab) switchTab(firstTab);
+}
+
     
     
 
