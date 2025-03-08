@@ -152,6 +152,16 @@ function createTab(title = "New Tab", contentText = "", link = "") {
 
 function setupInitialTabs() {
     createTab(
+        "I Thank God", 
+        `v\n14\n\npre\n5641\n564\n\nch\n1214\n64\n\nbrdge\n1\n\n5641`,
+        "https://pnwchords.com/i-thank-god-maverick-city-music-upperroom/"
+    );
+    createTab(
+        "I Speak Jesus", 
+        `v\n1641\n\nch\n5 1-4\n1\n\nbrdge\n1\n1641`,
+        "https://pnwchords.com/i-speak-jesus-charity-gayle/"
+    );
+    createTab(
         "God's Great Dance Floor",
         `intro\n1415\n\nv\n1415\n\npre\n2614\n\nch\n1415`,
         "https://www.worshiptogether.com/songs/gods-great-dance-floor-tomlin/"
@@ -177,6 +187,7 @@ function setupInitialTabs() {
     const firstTab = document.querySelector(".tab");
     if (firstTab) switchTab(firstTab);
 }
+
 
     
     
